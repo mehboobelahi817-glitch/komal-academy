@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komal Academy | Admissions</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#e0f0ff,#d0e7ff);
+    padding:40px 20px;
+    transition:0.3s;
+}
+
+body.dark{
+    background:#0f172a;
+    color:white;
+}
+
+/* Dark Toggle */
+.dark-toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:6px 12px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:white;
+}
+
+body.dark .dark-toggle{
+    background:#334155;
+    color:white;
+}
+
+/* Title */
+.page-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.page-title h1{
+    font-size:36px;
+    color:#007BFF;
+}
+
+body.dark .page-title h1{
+    color:#38bdf8;
+}
+
+/* Fee Cards */
+.fee-section{
+    max-width:900px;
+    margin:0 auto 40px auto;
+}
+
+.fee-card{
+    background:#007BFF;
+    color:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+body.dark .fee-card{
+    background:#1e3a8a;
+}
+
+/* Apply Button */
+.apply-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 25px;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.apply-btn:hover{
+    background:#218838;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn{
+    display:block;
+    margin:15px auto;
+    padding:12px 25px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    border-radius:8px;
+    font-size:18px;
+    text-decoration:none;
+    width:250px;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebe5d;
+}
+
+/* Form */
+.form-container{
+    max-width:500px;
+    margin:20px auto;
+    padding:25px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    display:none;
+}
+
+body.dark .form-container{
+    background:#1e293b;
+}
+
+.form-container input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.submit-btn{
+    width:100%;
+    padding:10px;
+    background:#007BFF;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* Result Section */
+.result-section{
+    text-align:center;
+    margin-top:40px;
+}
+
+.result-card{
+    max-width:400px;
+    margin:20px auto;
+    padding:20px;
+    background:#28a745;
+    color:white;
+    border-radius:15px;
+}
+
+.result-card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+/* Google Map */
+.map-section{
+    margin-top:50px;
+    text-align:center;
+}
+
+.map-section iframe{
+    width:100%;
+    max-width:800px;
+    height:400px;
+    border-radius:12px;
+}
+
+/* Message */
+.success-message{
+    text-align:center;
+    font-size:18px;
+    margin-top:20px;
+    font-weight:bold;
+    color:#6a0dad;
+}
+
+body.dark .success-message{
+    color:#c084fc;
+}
+</style>
+</head>
+<body>
+
+<button class="dark-toggle" id="darkToggle">🌙</button>
+
+<div class="page-title">
+    <h1>Admissions Open</h1>
+    <h2>Playgroup to Matric Students</h2>
+</div>
+
+<div class="fee-section">
+
+    <div class="fee-card">
+        <h3>Playgroup to Class 5</h3>
+        <p><strong>2500 PKR</strong></p>
+        <p>Talk to Komal Api for low admission fees.</p>
+    </div>
+
+    <div class="fee-card">
+        <h3>Class 6 to 8</h3>
+        <p><strong>3500 PKR</strong></p>
+    </div>
+
+    <div class="fee-card">
+        <h3>Class 9 & 10</h3>
+        <p><strong>5000 PKR</strong></p>
+    </div>
+
+</div>
+
+<button class="apply-btn" onclick="showForm()">Apply Now</button>
+
+<a class="whatsapp-btn" 
+href="https://wa.me/923228095974?text=Assalamualaikum%20I%20want%20to%20know%20about%20admissions%20in%20Komal%20Academy" 
+target="_blank">
+Chat on WhatsApp
+</a>
+
+<div class="form-container" id="admissionForm">
+    <input type="text" placeholder="Child Name" required>
+    <input type="text" placeholder="Child Class" required>
+    <input type="text" placeholder="Parent Contact Number" required>
+    <button class="submit-btn" onclick="submitForm()">Submit</button>
+</div>
+
+<div class="success-message" id="successMsg"></div>
+
+<div class="result-section">
+    <h2>Brilliant Results of Komal Academy</h2>
+    <div class="result-card">
+        <img src="assets/hooriamahboob.jpg" alt="Hooria Mehboob">
+        <h2>Hooria Mehboob</h2>
+        <p>Class 9 Result: <strong>444 / 550</strong></p>
+    </div>
+</div>
+
+<div class="map-section">
+    <h2>Visit Our Branch</h2>
+    <p>Mazang Lahore Branch 1</p>
+    <iframe 
+        src="https://www.google.com/maps?q=Mazang+Lahore&output=embed">
+    </iframe>
+</div>
+
+<script>
+document.getElementById("darkToggle").addEventListener("click",function(){
+    document.body.classList.toggle("dark");
+});
+
+function showForm(){
+    document.getElementById("admissionForm").style.display="block";
+}
+
+function submitForm(){
+    document.getElementById("successMsg").innerHTML=
+    "✅ Please visit Mazang Lahore Branch 1 for admission.";
+}
+</script>
+
+</body>
+</html>
